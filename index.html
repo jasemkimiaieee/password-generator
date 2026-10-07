@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <svg id="icons">
+        <symbol id="arrow" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.5625 5.25L19.3125 12L12.5625 18.75M18.375 12H4.6875" stroke="currentColor" stroke-width="2"
+                stroke-miterlimit="10" stroke-linecap="square" />
+        </symbol>
+        <symbol id="copy" width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M21.375 22.5H6.375C6.07663 22.5 5.79048 22.3815 5.5795 22.1705C5.36853 21.9595 5.25 21.6734 5.25 21.375V6C5.25 5.80109 5.32902 5.61032 5.46967 5.46967C5.61032 5.32902 5.80109 5.25 6 5.25H21.375C21.6734 5.25 21.9595 5.36853 22.1705 5.5795C22.3815 5.79048 22.5 6.07663 22.5 6.375V21.375C22.5 21.6734 22.3815 21.9595 22.1705 22.1705C21.9595 22.3815 21.6734 22.5 21.375 22.5Z"
+                fill="currentColor" />
+            <path
+                d="M5.25 3.75H18.75V2.625C18.75 2.32663 18.6315 2.04048 18.4205 1.8295C18.2095 1.61853 17.9234 1.5 17.625 1.5H2.8125C2.4644 1.5 2.13056 1.63828 1.88442 1.88442C1.63828 2.13056 1.5 2.4644 1.5 2.8125V17.625C1.5 17.9234 1.61853 18.2095 1.8295 18.4205C2.04048 18.6315 2.32663 18.75 2.625 18.75H3.75V5.25C3.75 4.85218 3.90804 4.47064 4.18934 4.18934C4.47064 3.90804 4.85218 3.75 5.25 3.75Z"
+                fill="currentColor" />
+        </symbol>
+        <symbol id="muted" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path d="M19.5 20.25L3 3.75" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="square" />
+                <path
+                    d="M16.5 12C16.5 10.8487 16.2277 9.75562 15.668 8.65921L15.3281 7.99077L13.9913 8.67187L14.3321 9.33983C14.7816 10.2216 15 11.0916 15 12C14.9997 12.1838 14.9899 12.3675 14.9705 12.5503L16.2511 13.8309C16.4149 13.2344 16.4986 12.6186 16.5 12ZM19.5 12C19.5 9.60046 18.8869 8.06765 17.8978 6.37218L17.52 5.72437L16.2244 6.47999L16.6022 7.1278C17.4877 8.64562 18 9.92952 18 12C18 13.2155 17.8177 14.1661 17.4844 15.0623L18.6328 16.2112C19.1808 14.985 19.5 13.7072 19.5 12Z"
+                    fill="currentColor" />
+                <path
+                    d="M22.5 12C22.5 8.51906 21.5536 6.32297 20.1323 4.09641L19.7288 3.46406L18.4631 4.27125L18.8667 4.90359C20.1478 6.90844 21 8.88281 21 12C21 14.2856 20.5594 15.9375 19.8366 17.4164L20.9475 18.5273C22.0387 16.4714 22.5 14.4844 22.5 12ZM12 3.375L8.55 6.13031L12 9.57984V3.375ZM1.5 8.25469V15.7453H5.88984L12 20.625V15.9202L4.33453 8.25469H1.5Z"
+                    fill="currentColor" />
+            </g>
+        </symbol>
+        <symbol id="sync" width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M20.3752 13.387V11.9902C20.3752 7.36219 16.6139 3.60938 11.9752 3.60938C10.7132 3.60783 9.46724 3.89093 8.32989 4.43761C7.19253 4.98429 6.19314 5.78047 5.4061 6.76688M3.60001 10.6106V12.0075C3.60001 16.6406 7.35938 20.3906 12 20.3906C13.2583 20.3888 14.5004 20.1063 15.6357 19.5636C16.7709 19.0209 17.7708 18.2318 18.5625 17.2538"
+                stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" />
+            <path d="M1.5 12L3.5625 9.9375L5.71875 12M22.5 12L20.4375 14.0625L18.2812 12" stroke="currentColor"
+                stroke-width="2" stroke-miterlimit="10" stroke-linecap="square" />
+        </symbol>
+        <symbol id="Rectangle" width="100%" height="100%" viewBox="0 0 360 64" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0H360V64H14.4385L0 47.5V0Z" fill="currentColor" />
+        </symbol>
+        <symbol id="check" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+        </symbol>
+        <symbol id="warning" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+        </symbol>
+
+    </svg>
+
+    <div class="container">
+        <div class="app">
+            <div class="left-content">
+                <h1 class="title">password generator</h1>
+
+                <div class="password" data-filter="1">
+                    <span class="password__screen password__screen--loading" id="password"></span>
+                    <div class="password__options">
+                        <div class="password__filter">
+                            <span class="password__secur"></span>
+                            <span class="password__secur"></span>
+                            <span class="password__secur"></span>
+                            <span class="password__secur"></span>
+                        </div>
+                        <button class="password__generaitor">
+                            <svg>
+                                <use href="#sync"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="copy">
+                    <button class="copy__btn">
+                        <span class="copy__text">Copy Password_</span>
+                        <span class="copy__icon">
+                            <svg>
+                                <use href="#arrow"></use>
+                            </svg>
+                        </span>
+                    </button>
+                    <span class="copy__caption">R25</span>
+                </div>
+                <div class="length">
+                    <input type="range" id="length" class="length__input" min="4" max="24" value="8">
+                    <span class="length__value">8</span>
+                </div>
+                <div class="options">
+                    <input type="checkbox" class="options__input" name="uppercase" id="uppercase" hidden>
+                    <label for="uppercase" class="options__label">
+                        <span class="options__checkbox">
+                            <svg>
+                                <use href="#check"></use>
+                            </svg>
+                        </span>
+                        <span class="options__text">Uppercase letters</span>
+                    </label>
+
+                    <input type="checkbox" class="options__input" name="lowercase" id="lowercase" hidden checked>
+                    <label for="lowercase" class="options__label">
+                        <span class="options__checkbox">
+                            <svg>
+                                <use href="#check"></use>
+                            </svg>
+                        </span>
+                        <span class="options__text">Lowercase letters</span>
+                    </label>
+
+                    <input type="checkbox" class="options__input" name="numbers" id="numbers" hidden>
+                    <label for="numbers" class="options__label">
+                        <span class="options__checkbox">
+                            <svg>
+                                <use href="#check"></use>
+                            </svg>
+                        </span>
+                        <span class="options__text">Numbers</span>
+                    </label>
+
+                    <input type="checkbox" class="options__input" name="special" id="special" hidden>
+                    <label for="special" class="options__label">
+                        <span class="options__checkbox">
+                            <svg>
+                                <use href="#check"></use>
+                            </svg>
+                        </span>
+                        <span class="options__text">Symbols</span>
+                    </label>
+
+                </div>
+            </div>
+            <div class="history">
+                <h2 class="history__title">Password history</h2>
+                <ul class="history__list history__list--empty">
+                    <li class="history__item--empty">
+                        Your generated password will appear here
+                        <br>
+                        once you create them.
+                    </li>
+                </ul>
+                <p class="history__clear">Clear history</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js" type="module"></script>
+
+</html>
