@@ -115,7 +115,7 @@ body {
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: rgba(var(--main-color), 0.5);
+  background-color: rgb(var(--options-color));
   border-radius: 50%;
 }
 .password__screen--loading::before {
