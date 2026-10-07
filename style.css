@@ -262,7 +262,6 @@ body {
   transform: translateX(-50%);
   white-space: nowrap;
 }
-.length__input:hover + .length__value,
 .length__value--active {
   visibility: visible;
   opacity: 1;
